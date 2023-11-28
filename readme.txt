@@ -1,7 +1,7 @@
 ﻿=== Customizer Login Page ===
-Contributors: shovoalways
-Donate link: https://www.buymeacoffee.com/aliHossain
-Author URI: https://www.alihossain.com/
+Contributors: nftushar
+Donate link: https://www.buymeacoffee.com/xx
+Author URI: https://www.xx.com/
 Plugin URI: https://wordpress.org/plugins/customizer-login-page-wp/
 Tags: customizer admin login, custom login page, custom wp-login, login customizer
 Requires at least: 5.2
@@ -15,12 +15,12 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 The Customizer Login Page plugin will help you to enable a custom login page to your WordPress website. If you want to customize your basic admin login page then this plugin will be helpful for you.
 
 
-*   [Need Help?](https://www.alihossain.com/contact/)		
-*   [About Author](https://github.com/shovoalways)
+*   [Need Help?](https://www.xx.com/contact/)		
+*   [About Author](https://github.com/nftushar)
 
 
 == Video Tutorial ==
-[youtube https://www.youtube.com/watch?v=1SjXJHMf46Q]
+[youtube https://comeing soon]
 
 
 ==  ⚡ You can changes settings ==
