@@ -30,7 +30,7 @@ add_action('admin_menu', 'clpwp_add_theme_page');
  */
 function clpwp_add_theme_css()
 {
-  wp_enqueue_style('clpwp-admin-style', plugins_url('css/clpwp-admin-style.css', __FILE__), false, "1.0.0");
+  wp_enqueue_style('clpwp-admin-style.css', plugins_url('css/clpwp-admin-style.css', __FILE__), false, "1.0.0");
 }
 add_action('admin_enqueue_scripts', 'clpwp_add_theme_css');
 
