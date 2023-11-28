@@ -42,50 +42,56 @@ add_action('admin_enqueue_scripts', 'clpwp_add_theme_css');
 function clpwp_create_page()
 {
 ?>
-  <div class="cplwp_main_area">
-    <div class="cplwp_body_area">
+  <div class="clpwp_main_area">
+    <div class="clpwp_body_area clpwp_common">
       <h3 id="title"> <?php print esc_attr("Customize Your Login Page"); ?> </h3>
       <form action="options.php" method="post">
         <?php wp_nonce_field("update-options"); ?>
         <!-- primary color -->
-        <label for="cplwp-primary-color" name="cplwp-primary-color">
+        <label for="clpwp-primary-color" name="clpwp-primary-color">
           <?php esc_attr("primary color"); ?>
         </label>
-        <input type="color" name="cplwp-primary-color" value="<?php print get_option("cplwp-primary-color") ?>">
+        <input type="color" name="clpwp-primary-color" value="<?php print get_option("clpwp-primary-color") ?>">
+
+            <!-- secondary color -->
+            <label for="clpwp-secondary-color" name="clpwp-secondary-color">
+          <?php esc_attr("secondary color"); ?>
+        </label>
+        <input type="color" name="clpwp-secondary-color" value="<?php print get_option("clpwp-secondary-color") ?>">
 
         <!-- background image -->
-        <label for="cplwp-custom-bg-image" name="cplwp-custom-bg-image">
+        <label for="clpwp-custom-bg-image" name="clpwp-custom-bg-image">
           <?php esc_attr("Paste The Url of your background image"); ?>
         </label>
-        <input type="text" name="cplwp-bg-image" value="<?php print get_option("cplwp-bg-image") ?>" placeholder="Paste The Url of your background image">
+        <input type="text" name="clpwp-bg-image" value="<?php print get_option("clpwp-bg-image") ?>" placeholder="Paste The Url of your background image">
 
 
         <!-- Main Logo -->
-        <label for="cplwp-logo-image-url" name="cplwp-logo-image-url">
+        <label for="clpwp-logo-image-url" name="clpwp-logo-image-url">
           <?php esc_attr("Upload Your Logo"); ?>
         </label>
-        <input type="text" name="cplwp-logo-image-url" value="<?php print get_option("cplwp-logo-image-url") ?>" placeholder="Paste logo Url">
+        <input type="text" name="clpwp-logo-image-url" value="<?php print get_option("clpwp-logo-image-url") ?>" placeholder="Paste logo Url">
 
 
         <!-- Background Brightness -->
-        <label for="cplwp-bg-brightness" name="cplwp-bg-brightness">
+        <label for="clpwp-bg-brightness" name="clpwp-bg-brightness">
           <?php esc_attr("Background Brightness"); ?>
         </label>
-        <input type="number" name="cplwp-bg-brightness" value="<?php print get_option("cplwp-bg-brightness") ?>" placeholder="Background Brightness">
+        <input type="text" name="clpwp-bg-brightness" value="<?php print get_option("clpwp-bg-brightness") ?>" placeholder="Background Brightness">
 
 
         <input type="hidden" name="action" value="update">
-        <input type="hidden" name="page_options" value="cplwp-primary-color, cplwp-logo-image-url, cplwp-bg-image, cplwp-bg-brightness">
-        <input type="submit" name="submit" class="button button-primary" value="<?php _e("Save Data", "cplwp") ?>">
+        <input type="hidden" name="page_options" value="clpwp-primary-color, clpwp-logo-image-url, clpwp-bg-image, clpwp-bg-brightness, clpwp-secondary-color">
+        <input type="submit" name="submit" class="button button-primary" value="<?php _e("Save Data", "clpwp") ?>">
       </form>
-
-
-      <div class="clpwp_sidebar_area">
-        <h3 id="title"> <?php print esc_attr("About Author"); ?> </h3>
-        <p>Hello <strong>NF Tushar</strong>
-          welcome to my plugin</p>
-      </div>
     </div>
+
+    <div class="clpwp_sidebar_area clpwp_common">
+      <h3 id="title"> <?php print esc_attr("About Author"); ?> </h3>
+      <p>Hello <strong>NF Tushar</strong>
+        welcome to my plugin</p>
+    </div>
+  </div>
   </div>
 <?php
 }
@@ -108,8 +114,39 @@ function clpwp_login_logo_change()
   <style>
     #login h1 a,
     .login h1 a {
-      background-image: url(<?php print plugin_dir_url(__FILE__) . '/img/logo-sm.png'; ?>);
+      background-image: url(<?php print get_option("clpwp-logo-image-url"); ?>) !important;
     }
+
+
+    #login form p.submit input {
+      background: url(<?php print get_option("clpwp-primary-color"); ?>) !important;
+    }
+
+    .login #login_error,
+    .login .message,
+    .login .success {
+      border-left: 4px solid <?php print get_option("clpwp-primary-color"); ?> !important;
+    }
+
+    input#user_login,
+    input#user_pass {
+      border-left: 4px solid <?php print get_option("clpwp-primary-color"); ?> !important;
+    }
+
+    #login form p.submit input { 
+      background:<?php print get_option("clpwp-primary-color"); ?> !important; 
+    }
+    .login #backtoblog a { 
+      background:<?php print get_option("clpwp-secondary-color"); ?> !important; 
+
+    }
+    body.login { 
+      background-image: url(<?php print get_option("clpwp-bg-image"); ?>) !important; 
+    }
+    body.login::after {
+      opacity: <?php print get_option("clpwp-bg-brightness"); ?> !important; ;
+    }
+
   </style>
 
 <?php
